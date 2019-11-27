@@ -81,4 +81,11 @@
     <property name="descriptionKey" value="CatalogStressTester.description" />
     <property name="componentClass" value="org.geoserver.web.catalogstresstool.CatalogStressTester" />
   </bean>
+
+  <bean id="TestTool" class="org.geoserver.web.ToolLinkInfo">
+    <property name="id" value="TestTool" />
+    <property name="titleKey" value="TestTool.title" />
+    <property name="descriptionKey" value="TestTool.description" />
+    <property name="componentClass" value="org.geoserver.web.publishtool.TestTool" />
+  </bean>
 </beans>

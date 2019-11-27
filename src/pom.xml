@@ -51,6 +51,18 @@
  </ciManagement>
 
  <repositories>
+    <repository>  
+        <id>alimaven</id>  
+        <name>aliyun maven</name>  
+        <url>http://maven.aliyun.com/nexus/content/groups/public/</url>  
+        <releases>  
+            <enabled>true</enabled>  
+        </releases>  
+        <snapshots>  
+            <enabled>false</enabled>  
+        </snapshots>  
+    </repository>  
+
   <repository>
    <id>boundless</id>
    <name>Boundless Maven Repository</name>
@@ -88,6 +100,11 @@
 
  <dependencyManagement>
   <dependencies>
+  <dependency>
+    <groupId>org.gdal</groupId>
+    <artifactId>gdal</artifactId>
+    <version>1.11.2</version>
+  </dependency>
    <dependency>
     <groupId>org.geoserver</groupId>
     <artifactId>gs-platform</artifactId>
