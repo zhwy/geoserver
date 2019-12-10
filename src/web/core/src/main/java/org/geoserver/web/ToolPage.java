@@ -43,11 +43,12 @@ public class ToolPage extends GeoServerSecuredPage {
                                         new StringResourceModel(
                                                 info.getTitleKey(), (Component) null, null)));
                         item.add(link);
-//                        item.add(
-//                                new Label(
-//                                        "theDescription",
-//                                        new StringResourceModel(
-//                                                info.getDescriptionKey(), (Component) null, null)));
+                        //                        item.add(
+                        //                                new Label(
+                        //                                        "theDescription",
+                        //                                        new StringResourceModel(
+                        //                                                info.getDescriptionKey(),
+                        // (Component) null, null)));
                     }
                 });
     }

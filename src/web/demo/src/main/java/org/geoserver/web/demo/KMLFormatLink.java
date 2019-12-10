@@ -10,12 +10,15 @@ import org.apache.wicket.model.StringResourceModel;
 
 public class KMLFormatLink extends CommonFormatLink {
 
-	@Override
-	public ExternalLink getFormatLink(PreviewLayer layer) {
-		ExternalLink kmlLink = new ExternalLink(this.getComponentId(),
-				layer.getWmsLink() + "/kml?layers=" + layer.getName(),
-				(new StringResourceModel(this.getTitleKey(), (Component) null, null)).getString());
-		kmlLink.setVisible(layer.hasServiceSupport("WMS"));
-		return kmlLink;
-	}
+    @Override
+    public ExternalLink getFormatLink(PreviewLayer layer) {
+        ExternalLink kmlLink =
+                new ExternalLink(
+                        this.getComponentId(),
+                        layer.getWmsLink() + "/kml?layers=" + layer.getName(),
+                        (new StringResourceModel(this.getTitleKey(), (Component) null, null))
+                                .getString());
+        kmlLink.setVisible(layer.hasServiceSupport("WMS"));
+        return kmlLink;
+    }
 }
