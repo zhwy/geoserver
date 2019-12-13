@@ -55,3 +55,5 @@ officially part of the GeoServer releases. They are however built along with the
    geostyler/index
    csw-iso/index
    importer-jdbc/index
+   hana/index
+   json-ld/index

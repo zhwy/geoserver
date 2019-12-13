@@ -141,6 +141,8 @@ public class WMSLayerConfigTest extends GeoServerWicketTestSupport {
         AttributeModifier mod = (AttributeModifier) img.getBehaviors().get(0);
         assertTrue(mod.toString().contains("wms?REQUEST=GetLegendGraphic"));
         assertTrue(mod.toString().contains("style=cite:Ponds"));
+        String ft = layer.getResource().getNamespace().getPrefix() + ":" + layer.getName();
+        assertTrue(mod.toString().contains("layer=" + ft));
     }
 
     @Test
@@ -227,5 +229,18 @@ public class WMSLayerConfigTest extends GeoServerWicketTestSupport {
         tester.assertModelValue(
                 "form:panel:remoteformats:remoteFormatsPalette",
                 new HashSet<String>(wmsLayer.availableFormats()));
+        tester.assertVisible("form:panel:metaDataCheckBoxContainer");
+
+        // min max scale UI fields
+        tester.assertVisible("form:panel:scaleDenominatorContainer:minScale");
+        tester.assertVisible("form:panel:scaleDenominatorContainer:maxScale");
+
+        // validation check, setting min scale above max
+        FormTester ft = tester.newFormTester("form");
+        ft.setValue("panel:scaleDenominatorContainer:minScale", "100");
+        ft.setValue("panel:scaleDenominatorContainer:maxScale", "1");
+        ft.submit();
+        // there should be an error
+        tester.assertErrorMessages("Minimum Scale cannot be greater than Maximum Scale");
     }
 }
